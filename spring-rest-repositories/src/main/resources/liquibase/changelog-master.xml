@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="file" value="oid" dbms="h2" />
+    <property name="text" value="oid" dbms="h2" />
+
+    <property name="decimal" value="java.sql.Types.NUMERIC(19,2)" dbms="h2" />
+    <property name="currency" value="java.sql.Types.NUMERIC(24,4)" dbms="h2" />
+    <property name="longdecimal" value="java.sql.Types.NUMERIC(24,8)" dbms="h2" />
+    <property name="number" value="java.sql.Types.NUMERIC(19,0)" dbms="h2" />
+    <property name="int" value="java.sql.Types.BIGINT" dbms="h2" />
+    <property name="smallint" value="java.sql.Types.INTEGER" dbms="h2" />
+
+    <property name="time" value="java.sql.Types.TIME" dbms="h2" />
+    <property name="date" value="java.sql.Types.DATE" dbms="h2" />
+    <property name="datetime" value="java.sql.Types.TIMESTAMP" dbms="h2" />
+
+    <property name="flag" value="java.sql.Types.CHAR(1)" dbms="postgresql" />
+	
+	<property name="varchar_2" value="java.sql.Types.VARCHAR(2)" dbms="h2" />
+	<property name="varchar_5" value="java.sql.Types.VARCHAR(5)" dbms="h2" />
+	<property name="varchar_10" value="java.sql.Types.VARCHAR(10)" dbms="h2" />
+    <property name="varchar_20" value="java.sql.Types.VARCHAR(20)" dbms="h2" />
+    <property name="varchar_70" value="java.sql.Types.VARCHAR(70)" dbms="h2" />
+    <property name="varchar_255" value="java.sql.Types.VARCHAR(255)" dbms="h2" />
+    <property name="varchar_3000" value="java.sql.Types.VARCHAR(3000)" dbms="h2" />
+    <property name="varchar_4000" value="java.sql.Types.VARCHAR(4000)" dbms="h2" />
+
+    <property name="boolean" value="java.sql.Types.BOOLEAN" dbms="h2" />
+  
+
+	<include file="v1.0.0-changelog.xml" relativeToChangelogFile="true"/>
+	<include file="v1.0.0-data.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

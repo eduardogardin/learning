@@ -1,0 +1,29 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: PDI-test
+  datasource:
+    dataSourceClassName: org.h2.Driver
+    url: jdbc:h2:mem:nfce;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    initialize: false
+  data:
+   rest:
+      base-path: /api
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+      naming-strategy: org.hibernate.cfg.EJB3NamingStrategy 
+    generate-ddl: false
+  h2:
+    console:
+      enabled: true
+liquibase:
+  enabled: true
+  change-log: classpath:liquibase/changelog-master.xml
+  contexts: dev
+  drop-first: false

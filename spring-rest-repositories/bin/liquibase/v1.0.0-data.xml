@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet id="v1.0.0-data-1" author="egardin" context="dev">
+		<comment>Inserindo uf para testes</comment>
+		<insert tableName="uf">
+			<column name="id" valueSequenceNext="s_uf"/>
+			<column name="nome" value="Paraná"/>
+			<column name="sigla" value="PR"/>
+		</insert>
+		<insert tableName="uf">
+			<column name="id" valueSequenceNext="s_uf"/>
+			<column name="nome" value="São Paulo"/>
+			<column name="sigla" value="SP"/>
+		</insert>
+		<insert tableName="uf">
+			<column name="id" valueSequenceNext="s_uf"/>
+			<column name="nome" value="Santa Catarina"/>
+			<column name="sigla" value="SC"/>
+		</insert>
+		<insert tableName="uf">
+			<column name="id" valueSequenceNext="s_uf"/>
+			<column name="nome" value="Rio grade do sul"/>
+			<column name="sigla" value="RS"/>
+		</insert>
+	</changeSet>
+
+	<changeSet id="v1.0.0-data-2" author="egardin" context="dev">
+		<comment>Inserindo cidade para testes</comment>
+		<insert tableName="cidade">
+			<column name="id" valueSequenceNext="s_cidade"/>
+			<column name="nome" value="Maringá"/>
+			<column name="codigoibge" value="4115200"/>
+			<column name="uf_id" value="1"/>
+		</insert>
+	</changeSet>
+</databaseChangeLog>

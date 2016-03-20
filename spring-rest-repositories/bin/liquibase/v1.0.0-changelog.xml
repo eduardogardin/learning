@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet id="v1.0.0-1" author="egardin">
+		<preConditions onFail="MARK_RAN" onFailMessage="A sequence 'S_CIDADE' já existe">
+			<not>
+				<sequenceExists sequenceName="S_CIDADE"/>
+			</not>
+		</preConditions>
+
+		<createSequence sequenceName="S_CIDADE" incrementBy="1" startValue="1"/>
+	</changeSet>
+	
+	<changeSet id="v1.0.0-2" author="egardin">
+		<preConditions onFail="MARK_RAN" onFailMessage="A sequence 'S_UF' já existe">
+			<not>
+				<sequenceExists sequenceName="S_UF"/>
+			</not>
+		</preConditions>
+
+		<createSequence sequenceName="S_UF" incrementBy="1" startValue="1"/>
+	</changeSet>
+
+	<changeSet id="v1.0.0-3" author="egardin">
+		<preConditions onFail="MARK_RAN" onFailMessage="A tabela 'uf' já existe">
+			<not>
+				<tableExists tableName="uf"/>
+			</not>
+		</preConditions>
+
+		<createTable tableName="uf">
+			<column name="id" type="${int}">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="uf_pk"/>
+			</column>
+
+			<column name="nome" type="${varchar_255}">
+				<constraints nullable="false"/>
+			</column>
+
+			<column name="sigla" type="${varchar_2}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="v1.0.0-4" author="egardin">
+		<preConditions onFail="MARK_RAN" onFailMessage="A tabela 'cidade' já existe">
+			<not>
+				<tableExists tableName="cidade"/>
+			</not>
+		</preConditions>
+
+		<createTable tableName="cidade">
+			<column name="id" type="${int}">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="cidade_pk"/>
+			</column>
+
+			<column name="nome" type="${varchar_255}">
+				<constraints nullable="false"/>
+			</column>
+			
+			<column name="codigoIbge" type="${varchar_10}">
+			</column>
+
+			<column name="uf_id" type="${int}">
+				<constraints nullable="false" foreignKeyName="cidade_uf_fk"/>
+			</column>
+		</createTable>
+	</changeSet>
+</databaseChangeLog>
